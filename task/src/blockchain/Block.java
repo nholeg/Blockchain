@@ -8,12 +8,15 @@ public class Block {
     long timestamp;
     String hashPrev;
     String hash;
+    String magic;
+    long time;
 
-    Block(int id, long timestamp,String hashPrev, String hash) {
+    Block(int id, long timestamp,String hashPrev, String hash, String magic) {
         this.id = id;
         this.timestamp = timestamp;
         this.hashPrev = hashPrev;
         this.hash = calulateHash(hash);
+        this.magic = magic;
 
     }
     /* Applies Sha256 to a string and returns a hash. */
@@ -47,7 +50,23 @@ public class Block {
         return hash;
     }
 
+    public void setTime(long time) {
+        this.time = time;
+    }
+
     public long getTimestamp() {
         return timestamp;
+    }
+
+    @Override
+    public String toString() {
+        return "Block: \n" +
+                "Id: " + id + "\n" +
+                "Timestamp: " + timestamp + "\n" +
+                "Magic number: " + magic + "\n" +
+                "Hash of the previous block:\n" + hashPrev + "\n" +
+                "Hash of the block:\n" + hash + "\n" +
+                "Block was generating for " + time + " seconds" + "\n";
+
     }
 }
