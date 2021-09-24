@@ -11,13 +11,16 @@ public class Block implements Serializable {
     private long magicNumber;
     private final String blockHash;
     private long hashingTime;
+    private String miner;
+    private String statementOfN;
 
-    public Block(int blockId, String zerosPrefix) {
+    public Block(int blockId, String zerosPrefix, String miner) {
         this.blockId = blockId;
         this.timeStamp = System.currentTimeMillis();
         this.blockHash = generateBlockHash(zerosPrefix);
         this.prevBlockHash = Blockchain.chainMap.isEmpty() ? "0"
                 : Blockchain.chainMap.get(getBlockId() - 1).getBlockHash();
+        this.miner = miner;
     }
 
     public int getBlockId() {
@@ -26,6 +29,14 @@ public class Block implements Serializable {
 
     public String getBlockHash() {
         return blockHash;
+    }
+
+    public long getHashingTime() {
+        return hashingTime;
+    }
+
+    public void setStatementOfN(String statementOfN) {
+        this.statementOfN = statementOfN;
     }
 
     private String generateBlockHash(String zerosPrefix) {
@@ -43,11 +54,13 @@ public class Block implements Serializable {
     @Override
     public String toString() {
         return "\nBlock:\n" +
+                "Created by miner # " + miner + "\n" +
                 "Id: " + blockId + "\n" +
                 "Timestamp: " + timeStamp + "\n" +
                 "Magic number: " + magicNumber + "\n" +
                 "Hash of the previous block:\n" + prevBlockHash + "\n" +
                 "Hash of the block:\n" + blockHash + "\n" +
-                "Block was generating for " + hashingTime + " seconds";
+                "Block was generating for " + hashingTime + " seconds" + "\n" +
+                statementOfN + "\n";
     }
 }

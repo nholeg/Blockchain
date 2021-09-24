@@ -5,7 +5,6 @@ import java.util.stream.Collectors;
 
 public class Validator {
 
-    // todo ---- create proper validation
     protected static boolean validateChain(ConcurrentMap<Integer, Block> chainMap) {
         String blockchainOne = chainMap.values().stream()
                 .map(Block::getBlockHash)
