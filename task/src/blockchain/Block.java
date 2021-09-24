@@ -1,72 +1,53 @@
 package blockchain;
 
-import java.security.MessageDigest;
-import java.util.Date;
+import java.io.Serializable;
+import java.util.Random;
 
-public class Block {
-    int id;
-    long timestamp;
-    String hashPrev;
-    String hash;
-    String magic;
-    long time;
+public class Block implements Serializable {
+    private static final long serialVersionUID = 123456789L;
+    private final int blockId;
+    private final String prevBlockHash;
+    private final long timeStamp;
+    private long magicNumber;
+    private final String blockHash;
+    private long hashingTime;
 
-    Block(int id, long timestamp,String hashPrev, String hash, String magic) {
-        this.id = id;
-        this.timestamp = timestamp;
-        this.hashPrev = hashPrev;
-        this.hash = calulateHash(hash);
-        this.magic = magic;
-
-    }
-    /* Applies Sha256 to a string and returns a hash. */
-    public static String calulateHash(String input) {
-        try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            /* Applies sha256 to our input */
-            byte[] hash = digest.digest(input.getBytes("UTF-8"));
-            StringBuilder hexString = new StringBuilder();
-            for (byte elem: hash) {
-                String hex = Integer.toHexString(0xff & elem);
-                if(hex.length() == 1) hexString.append('0');
-                hexString.append(hex);
-            }
-            return hexString.toString();
-        }
-        catch(Exception e) {
-            throw new RuntimeException(e);
-        }
+    public Block(int blockId, String zerosPrefix) {
+        this.blockId = blockId;
+        this.timeStamp = System.currentTimeMillis();
+        this.blockHash = generateBlockHash(zerosPrefix);
+        this.prevBlockHash = Blockchain.chainMap.isEmpty() ? "0"
+                : Blockchain.chainMap.get(getBlockId() - 1).getBlockHash();
     }
 
-    public int getId() {
-        return id;
+    public int getBlockId() {
+        return blockId;
     }
 
-    public String getHashPrev() {
-        return hashPrev;
+    public String getBlockHash() {
+        return blockHash;
     }
 
-    public String getHash() {
-        return hash;
-    }
-
-    public void setTime(long time) {
-        this.time = time;
-    }
-
-    public long getTimestamp() {
-        return timestamp;
+    private String generateBlockHash(String zerosPrefix) {
+        String blockHash;
+        long start = System.currentTimeMillis();
+        do {
+            magicNumber = new Random().nextInt(100_000_000);
+            blockHash = Hashing.applySHA256(String.valueOf(blockId + timeStamp + magicNumber));
+        } while (!blockHash.startsWith(zerosPrefix));
+        long end = System.currentTimeMillis();
+        hashingTime = ((end - start) / 1000) % 60;
+        return blockHash;
     }
 
     @Override
     public String toString() {
-        return "Block: \n" +
-                "Id: " + id + "\n" +
-                "Timestamp: " + timestamp + "\n" +
-                "Magic number: " + magic + "\n" +
-                "Hash of the previous block:\n" + hashPrev + "\n" +
-                "Hash of the block:\n" + hash + "\n" +
-                "Block was generating for " + time + " seconds" + "\n";
-
+        return "\nBlock:\n" +
+                "Id: " + blockId + "\n" +
+                "Timestamp: " + timeStamp + "\n" +
+                "Magic number: " + magicNumber + "\n" +
+                "Hash of the previous block:\n" + prevBlockHash + "\n" +
+                "Hash of the block:\n" + blockHash + "\n" +
+                "Block was generating for " + hashingTime + " seconds";
     }
 }

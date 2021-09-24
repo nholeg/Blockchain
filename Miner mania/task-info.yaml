@@ -1,17 +1,6 @@
 type: edu
 custom_name: stage3
 files:
-- name: src/blockchain/Main.java
-  visible: true
-  text: |
-    package blockchain;
-
-    public class Main {
-        public static void main(String[] args) {
-            System.out.println("Hello World!");
-        }
-    }
-  learner_created: false
 - name: test/BlockchainTest.java
   visible: false
   text: |
@@ -232,6 +221,157 @@ files:
 
 
             return CheckResult.correct();
+        }
+    }
+  learner_created: false
+- name: src/blockchain/Blockchain.java
+  visible: true
+  text: |
+    package blockchain;
+    import java.util.Date;
+    import java.util.Random;
+
+
+    public class Blockchain {
+        static Block block;
+        static int blockNumber = 1;
+        Blockchain(String zeroes){
+            long timestamp = new Date().getTime();
+            Random random = new Random();
+            String magic = String.valueOf(random.nextInt(99_999_999));
+            String hash = "1" + timestamp + "0" + magic;
+            long start = System.currentTimeMillis();
+            block = new Block(1, timestamp, "0", hash, magic);
+            while (!block.getHash().startsWith(zeroes)) {
+                timestamp = new Date().getTime();
+                magic = String.valueOf(random.nextInt(99_999_999));
+                hash = blockNumber + timestamp + "0" + magic;
+                block = new Block(1, timestamp, "0", hash, magic);
+            }
+            long end = System.currentTimeMillis();
+            long interval = (end - start) / 1_000_000_000;
+            block.setTime(interval);
+        }
+
+        static Block createBlock(String zeroes) {
+            long timestamp = new Date().getTime();
+            Random random = new Random();
+            String magic = String.valueOf(random.nextInt(99_999_999));
+            String prevHash = block.getHash();
+            String hash = "" + (blockNumber +  1) + timestamp + prevHash + magic;
+            long start = System.currentTimeMillis();
+            block = new Block(blockNumber + 1, timestamp, prevHash, hash, magic);
+            while (!block.getHash().startsWith(zeroes)) {
+                timestamp = new Date().getTime();
+                magic = String.valueOf(random.nextInt(99_999_999));
+                hash = "" + (blockNumber + 1) + timestamp + prevHash + magic;
+                block = new Block(blockNumber + 1, timestamp, prevHash, hash, magic);
+            }
+            long end = System.currentTimeMillis();
+            long interval = (end - start) / 1_000_000_000;
+            block.setTime(interval);
+            blockNumber++;
+            return block;
+        }
+
+        static boolean validate(Block oldBlock, Block newBlock) {
+            if (oldBlock.getHash().equals(newBlock.getHashPrev())) {
+                return true;
+            } else {
+                return false;
+            }
+
+        }
+
+        public static Block getBlock() {
+            return block;
+        }
+    }
+  learner_created: true
+- name: src/blockchain/Block.java
+  visible: true
+  text: |
+    package blockchain;
+
+    import java.security.MessageDigest;
+    import java.util.Date;
+
+    public class Block {
+        int id;
+        long timestamp;
+        String hashPrev;
+        String hash;
+        String magic;
+        long time;
+
+        Block(int id, long timestamp,String hashPrev, String hash, String magic) {
+            this.id = id;
+            this.timestamp = timestamp;
+            this.hashPrev = hashPrev;
+            this.hash = calulateHash(hash);
+            this.magic = magic;
+
+        }
+        /* Applies Sha256 to a string and returns a hash. */
+        public static String calulateHash(String input) {
+            try {
+                MessageDigest digest = MessageDigest.getInstance("SHA-256");
+                /* Applies sha256 to our input */
+                byte[] hash = digest.digest(input.getBytes("UTF-8"));
+                StringBuilder hexString = new StringBuilder();
+                for (byte elem: hash) {
+                    String hex = Integer.toHexString(0xff & elem);
+                    if(hex.length() == 1) hexString.append('0');
+                    hexString.append(hex);
+                }
+                return hexString.toString();
+            }
+            catch(Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public String getHashPrev() {
+            return hashPrev;
+        }
+
+        public String getHash() {
+            return hash;
+        }
+
+        public void setTime(long time) {
+            this.time = time;
+        }
+
+        public long getTimestamp() {
+            return timestamp;
+        }
+
+        @Override
+        public String toString() {
+            return "Block: \n" +
+                    "Id: " + id + "\n" +
+                    "Timestamp: " + timestamp + "\n" +
+                    "Magic number: " + magic + "\n" +
+                    "Hash of the previous block:\n" + hashPrev + "\n" +
+                    "Hash of the block:\n" + hash + "\n" +
+                    "Block was generating for " + time + " seconds" + "\n";
+
+        }
+    }
+  learner_created: true
+- name: src/blockchain/Main.java
+  visible: true
+  text: |
+    package blockchain;
+
+    public class Main {
+        public static void main(String[] args) {
+            System.out.println("Hello World!");
         }
     }
   learner_created: false
