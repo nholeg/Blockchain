@@ -28,6 +28,7 @@ public class Miner {
         while (this.continueMining && !blockChain.isBlockHashProven(block)) {
             block.setMagicNumber(random.nextLong());
             block.setHash(hashGenerator.createHash(block.toString()));
+            block.setMessage(MessageGenerator.getMessage(this.id));
         }
 
         if (!this.continueMining) {

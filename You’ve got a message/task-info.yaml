@@ -383,76 +383,12 @@ files:
 - name: src/blockchain/MinersCentral.java
   visible: true
   learner_created: true
+- name: src/blockchain/MessageGenerator.java
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/50/stages/274/implement#comment
-status: Failed
+status: Solved
 feedback:
-  message: |-
-    Wrong answer in test #1
-
-    Every block should contain at least 12 lines of data
-
-    Please find below the output of your program during this failed test.
-
-    ---
-
-    Block:
-    Created by miner # 1
-    Id: 1
-    Timestamp: 1632732383531
-    Magic number: 0
-    Hash of the previous block:
-    0
-    Hash of the block:
-    3012506c89b87f3ab42e9f8636a93f1bc92a70195d1aa7d193eaa70400847f64
-    Block was generating for 0 seconds
-    N was increased to 1
-
-    Block:
-    Created by miner # 4
-    Id: 2
-    Timestamp: 1632732383578
-    Magic number: 0
-    Hash of the previous block:
-    3012506c89b87f3ab42e9f8636a93f1bc92a70195d1aa7d193eaa70400847f64
-    Hash of the block:
-    043bcb86452860b9be71083f6a10b3e73246e1027ce5bddad12071ccd38838f3
-    Block was generating for 0 seconds
-    N was increased to 2
-
-    Block:
-    Created by miner # 9
-    Id: 3
-    Timestamp: 1632732383578
-    Magic number: 1471371673623145330
-    Hash of the previous block:
-    043bcb86452860b9be71083f6a10b3e73246e1027ce5bddad12071ccd38838f3
-    Hash of the block:
-    00ece143d015b808b9e8f33823c4c0e65d70d2427c4014ca591f26a9ea4182ec
-    Block was generating for 0 seconds
-    N was increased to 3
-
-    Block:
-    Created by miner # 5
-    Id: 4
-    Timestamp: 1632732383578
-    Magic number: 9183207472447760578
-    Hash of the previous block:
-    00ece143d015b808b9e8f33823c4c0e65d70d2427c4014ca591f26a9ea4182ec
-    Hash of the block:
-    00049503b867394e7dbb5dd04bc5d2791d6c57e2a023843afe8beca4a32d3281
-    Block was generating for 0 seconds
-    N was increased to 4
-
-    Block:
-    Created by miner # 1
-    Id: 5
-    Timestamp: 1632732383625
-    Magic number: 2270549750562939402
-    Hash of the previous block:
-    00049503b867394e7dbb5dd04bc5d2791d6c57e2a023843afe8beca4a32d3281
-    Hash of the block:
-    00009f77cb7f6a8499f92d4b76f0943d574efcef581b031d8b301c16bdb0fa2f
-    Block was generating for 0 seconds
-    N was increased to 5
-  time: Mon, 27 Sep 2021 08:46:24 UTC
+  message: Congratulations!
+  time: Mon, 27 Sep 2021 10:51:49 UTC
 record: -1

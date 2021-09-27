@@ -13,6 +13,7 @@ public class Block {
     private long magicNumber;
     private long provingDuration;
     private String changeInN;
+    private String message = "";
 
     public Block(int id, String prevHash) {
         this.createdAt = new Date().getTime();
@@ -23,6 +24,18 @@ public class Block {
 
     public int getId() {
         return id;
+    }
+
+    public String getMessage() {
+        if (message.length() == 0) {
+            message = "no messages";
+        }
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+        MessageGenerator.deleteMessagesFromTheQueue();
     }
 
     public long getCreatedAt() {

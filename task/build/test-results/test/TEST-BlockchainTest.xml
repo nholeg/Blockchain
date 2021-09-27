@@ -1,184 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BlockchainTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2021-09-27T08:46:23" hostname="DESKTOP-33AIMNS" time="0.427">
+<testsuite name="BlockchainTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-09-27T10:51:36" hostname="DESKTOP-33AIMNS" time="12.502">
   <properties/>
-  <testcase name="start" classname="BlockchainTest" time="0.427">
-    <failure message="java.lang.AssertionError: Wrong answer in test #1&#10;&#10;Every block should contain at least 12 lines of data&#10;&#10;Please find below the output of your program during this failed test.&#10;&#10;---&#10;&#10;Block:&#10;Created by miner # 1&#10;Id: 1&#10;Timestamp: 1632732383531&#10;Magic number: 0&#10;Hash of the previous block:&#10;0&#10;Hash of the block:&#10;3012506c89b87f3ab42e9f8636a93f1bc92a70195d1aa7d193eaa70400847f64&#10;Block was generating for 0 seconds&#10;N was increased to 1&#10;&#10;Block:&#10;Created by miner # 4&#10;Id: 2&#10;Timestamp: 1632732383578&#10;Magic number: 0&#10;Hash of the previous block:&#10;3012506c89b87f3ab42e9f8636a93f1bc92a70195d1aa7d193eaa70400847f64&#10;Hash of the block:&#10;043bcb86452860b9be71083f6a10b3e73246e1027ce5bddad12071ccd38838f3&#10;Block was generating for 0 seconds&#10;N was increased to 2&#10;&#10;Block:&#10;Created by miner # 9&#10;Id: 3&#10;Timestamp: 1632732383578&#10;Magic number: 1471371673623145330&#10;Hash of the previous block:&#10;043bcb86452860b9be71083f6a10b3e73246e1027ce5bddad12071ccd38838f3&#10;Hash of the block:&#10;00ece143d015b808b9e8f33823c4c0e65d70d2427c4014ca591f26a9ea4182ec&#10;Block was generating for 0 seconds&#10;N was increased to 3&#10;&#10;Block:&#10;Created by miner # 5&#10;Id: 4&#10;Timestamp: 1632732383578&#10;Magic number: 9183207472447760578&#10;Hash of the previous block:&#10;00ece143d015b808b9e8f33823c4c0e65d70d2427c4014ca591f26a9ea4182ec&#10;Hash of the block:&#10;00049503b867394e7dbb5dd04bc5d2791d6c57e2a023843afe8beca4a32d3281&#10;Block was generating for 0 seconds&#10;N was increased to 4&#10;&#10;Block:&#10;Created by miner # 1&#10;Id: 5&#10;Timestamp: 1632732383625&#10;Magic number: 2270549750562939402&#10;Hash of the previous block:&#10;00049503b867394e7dbb5dd04bc5d2791d6c57e2a023843afe8beca4a32d3281&#10;Hash of the block:&#10;00009f77cb7f6a8499f92d4b76f0943d574efcef581b031d8b301c16bdb0fa2f&#10;Block was generating for 0 seconds&#10;N was increased to 5" type="java.lang.AssertionError">java.lang.AssertionError: Wrong answer in test #1
-
-Every block should contain at least 12 lines of data
-
-Please find below the output of your program during this failed test.
-
----
-
-Block:
-Created by miner # 1
-Id: 1
-Timestamp: 1632732383531
-Magic number: 0
-Hash of the previous block:
-0
-Hash of the block:
-3012506c89b87f3ab42e9f8636a93f1bc92a70195d1aa7d193eaa70400847f64
-Block was generating for 0 seconds
-N was increased to 1
-
-Block:
-Created by miner # 4
-Id: 2
-Timestamp: 1632732383578
-Magic number: 0
-Hash of the previous block:
-3012506c89b87f3ab42e9f8636a93f1bc92a70195d1aa7d193eaa70400847f64
-Hash of the block:
-043bcb86452860b9be71083f6a10b3e73246e1027ce5bddad12071ccd38838f3
-Block was generating for 0 seconds
-N was increased to 2
-
-Block:
-Created by miner # 9
-Id: 3
-Timestamp: 1632732383578
-Magic number: 1471371673623145330
-Hash of the previous block:
-043bcb86452860b9be71083f6a10b3e73246e1027ce5bddad12071ccd38838f3
-Hash of the block:
-00ece143d015b808b9e8f33823c4c0e65d70d2427c4014ca591f26a9ea4182ec
-Block was generating for 0 seconds
-N was increased to 3
-
-Block:
-Created by miner # 5
-Id: 4
-Timestamp: 1632732383578
-Magic number: 9183207472447760578
-Hash of the previous block:
-00ece143d015b808b9e8f33823c4c0e65d70d2427c4014ca591f26a9ea4182ec
-Hash of the block:
-00049503b867394e7dbb5dd04bc5d2791d6c57e2a023843afe8beca4a32d3281
-Block was generating for 0 seconds
-N was increased to 4
-
-Block:
-Created by miner # 1
-Id: 5
-Timestamp: 1632732383625
-Magic number: 2270549750562939402
-Hash of the previous block:
-00049503b867394e7dbb5dd04bc5d2791d6c57e2a023843afe8beca4a32d3281
-Hash of the block:
-00009f77cb7f6a8499f92d4b76f0943d574efcef581b031d8b301c16bdb0fa2f
-Block was generating for 0 seconds
-N was increased to 5
-	at org.junit.Assert.fail(Assert.java:88)
-	at org.hyperskill.hstest.stage.StageTest.start(StageTest.java:155)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:110)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
-	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:62)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
-	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:121)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
-	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
-	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-</failure>
-  </testcase>
+  <testcase name="start" classname="BlockchainTest" time="12.502"/>
   <system-out><![CDATA[?[1;31m
 Start test 1?[0m
 Block:
-Created by miner # 1
+Created by miner # 7
 Id: 1
-Timestamp: 1632732383531
+Timestamp: 1632739896437
 Magic number: 0
 Hash of the previous block:
 0
 Hash of the block:
-3012506c89b87f3ab42e9f8636a93f1bc92a70195d1aa7d193eaa70400847f64
+d7b2730081210497f589396175b40e99771f312a04e4c899346af5625d20fa88
+Block data: no messages
 Block was generating for 0 seconds
 N was increased to 1
 
 Block:
-Created by miner # 4
+Created by miner # 7
 Id: 2
-Timestamp: 1632732383578
-Magic number: 0
+Timestamp: 1632739896482
+Magic number: 9018720687152250242
 Hash of the previous block:
-3012506c89b87f3ab42e9f8636a93f1bc92a70195d1aa7d193eaa70400847f64
+d7b2730081210497f589396175b40e99771f312a04e4c899346af5625d20fa88
 Hash of the block:
-043bcb86452860b9be71083f6a10b3e73246e1027ce5bddad12071ccd38838f3
+003284f9dcb003bd36fe5aff944af43a27dcf16a564547e504087d864307bdd7
+Block data: 13 14 15 
 Block was generating for 0 seconds
 N was increased to 2
 
 Block:
-Created by miner # 9
+Created by miner # 6
 Id: 3
-Timestamp: 1632732383578
-Magic number: 1471371673623145330
+Timestamp: 1632739896484
+Magic number: 0
 Hash of the previous block:
-043bcb86452860b9be71083f6a10b3e73246e1027ce5bddad12071ccd38838f3
+003284f9dcb003bd36fe5aff944af43a27dcf16a564547e504087d864307bdd7
 Hash of the block:
-00ece143d015b808b9e8f33823c4c0e65d70d2427c4014ca591f26a9ea4182ec
+00a5356bea8119020d3aae93f55c21ac53d2c82c7342f2d9b7abb3e7a54b540e
+Block data: no messages
 Block was generating for 0 seconds
 N was increased to 3
 
 Block:
-Created by miner # 5
+Created by miner # 3
 Id: 4
-Timestamp: 1632732383578
-Magic number: 9183207472447760578
+Timestamp: 1632739896484
+Magic number: -8590530912736579206
 Hash of the previous block:
-00ece143d015b808b9e8f33823c4c0e65d70d2427c4014ca591f26a9ea4182ec
+00a5356bea8119020d3aae93f55c21ac53d2c82c7342f2d9b7abb3e7a54b540e
 Hash of the block:
-00049503b867394e7dbb5dd04bc5d2791d6c57e2a023843afe8beca4a32d3281
+0001a7123794f17b7bd0ac4e357885deef37e41b0344848da3243d48ccf315f7
+Block data: 7667 7668 
 Block was generating for 0 seconds
 N was increased to 4
 
 Block:
-Created by miner # 1
+Created by miner # 3
 Id: 5
-Timestamp: 1632732383625
-Magic number: 2270549750562939402
+Timestamp: 1632739896586
+Magic number: 2055991848170724658
 Hash of the previous block:
-00049503b867394e7dbb5dd04bc5d2791d6c57e2a023843afe8beca4a32d3281
+0001a7123794f17b7bd0ac4e357885deef37e41b0344848da3243d48ccf315f7
 Hash of the block:
-00009f77cb7f6a8499f92d4b76f0943d574efcef581b031d8b301c16bdb0fa2f
+0000574969e02be85af03c6f4c1964787873b7213d2f348766cfcd1bf8e25d2b
+Block data: 102519 102520 102521 
+Block was generating for 0 seconds
+N was increased to 5
+
+
+?[1;31m
+Start test 2?[0m
+Block:
+Created by miner # 1
+Id: 1
+Timestamp: 1632739905865
+Magic number: 0
+Hash of the previous block:
+0
+Hash of the block:
+15992cad60eb112721c6d9e334e5ca3325bcec622575e4cdd4e5185ea56f3136
+Block data: no messages
+Block was generating for 0 seconds
+N was increased to 1
+
+Block:
+Created by miner # 11
+Id: 2
+Timestamp: 1632739905865
+Magic number: -8561700184575371649
+Hash of the previous block:
+15992cad60eb112721c6d9e334e5ca3325bcec622575e4cdd4e5185ea56f3136
+Hash of the block:
+08115649b6ee724ec373e399bdf87df74cdf5792a29f58fde82a280599853d7e
+Block data: 23 
+Block was generating for 0 seconds
+N was increased to 2
+
+Block:
+Created by miner # 4
+Id: 3
+Timestamp: 1632739905865
+Magic number: -2969762430792711196
+Hash of the previous block:
+08115649b6ee724ec373e399bdf87df74cdf5792a29f58fde82a280599853d7e
+Hash of the block:
+005d821c11ccedfcfa7f56a0e0c47b763b3b59e4c0034d893d540c51299f971a
+Block data: 591 
+Block was generating for 0 seconds
+N was increased to 3
+
+Block:
+Created by miner # 8
+Id: 4
+Timestamp: 1632739905881
+Magic number: 7601250241354514258
+Hash of the previous block:
+005d821c11ccedfcfa7f56a0e0c47b763b3b59e4c0034d893d540c51299f971a
+Hash of the block:
+000f4eca69a390bc648e2dc276fa2726e7207e42a7a6e6b36aa72b28d3d18cc9
+Block data: 2807 
+Block was generating for 0 seconds
+N was increased to 4
+
+Block:
+Created by miner # 2
+Id: 5
+Timestamp: 1632739905881
+Magic number: 3476459826195115525
+Hash of the previous block:
+000f4eca69a390bc648e2dc276fa2726e7207e42a7a6e6b36aa72b28d3d18cc9
+Hash of the block:
+0000e762ec96de25aee1baf02a37a201ae2dcdcd83471037b7d0bf379bff366c
+Block data: 168152 
 Block was generating for 0 seconds
 N was increased to 5
 

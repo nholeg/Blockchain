@@ -94,6 +94,8 @@ class BlockChain {
                     .append(block.getPrevHash())
                     .append("\nHash of the block:\n")
                     .append(block.getHash())
+                    .append("\nBlock data: ")
+                    .append(block.getMessage())
                     .append("\nBlock was generating for ")
                     .append(block.getProvingDurationInSeconds())
                     .append(" seconds\n")
