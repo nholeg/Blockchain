@@ -29,7 +29,7 @@
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">0</div>
+<div class="counter">1</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.556s</div>
+<div class="counter">0.427s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox success" id="successRate">
-<div class="percent">100%</div>
+<div class="infoBox failures" id="successRate">
+<div class="percent">0%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,13 +61,142 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Tests</a>
+<a href="#tab0">Failed tests</a>
 </li>
 <li>
-<a href="#tab1">Standard output</a>
+<a href="#tab1">Tests</a>
+</li>
+<li>
+<a href="#tab2">Standard output</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="start"></a>
+<h3 class="failures">start</h3>
+<span class="code">
+<pre>java.lang.AssertionError: Wrong answer in test #1
+
+Every block should contain at least 12 lines of data
+
+Please find below the output of your program during this failed test.
+
+---
+
+Block:
+Created by miner # 1
+Id: 1
+Timestamp: 1632732383531
+Magic number: 0
+Hash of the previous block:
+0
+Hash of the block:
+3012506c89b87f3ab42e9f8636a93f1bc92a70195d1aa7d193eaa70400847f64
+Block was generating for 0 seconds
+N was increased to 1
+
+Block:
+Created by miner # 4
+Id: 2
+Timestamp: 1632732383578
+Magic number: 0
+Hash of the previous block:
+3012506c89b87f3ab42e9f8636a93f1bc92a70195d1aa7d193eaa70400847f64
+Hash of the block:
+043bcb86452860b9be71083f6a10b3e73246e1027ce5bddad12071ccd38838f3
+Block was generating for 0 seconds
+N was increased to 2
+
+Block:
+Created by miner # 9
+Id: 3
+Timestamp: 1632732383578
+Magic number: 1471371673623145330
+Hash of the previous block:
+043bcb86452860b9be71083f6a10b3e73246e1027ce5bddad12071ccd38838f3
+Hash of the block:
+00ece143d015b808b9e8f33823c4c0e65d70d2427c4014ca591f26a9ea4182ec
+Block was generating for 0 seconds
+N was increased to 3
+
+Block:
+Created by miner # 5
+Id: 4
+Timestamp: 1632732383578
+Magic number: 9183207472447760578
+Hash of the previous block:
+00ece143d015b808b9e8f33823c4c0e65d70d2427c4014ca591f26a9ea4182ec
+Hash of the block:
+00049503b867394e7dbb5dd04bc5d2791d6c57e2a023843afe8beca4a32d3281
+Block was generating for 0 seconds
+N was increased to 4
+
+Block:
+Created by miner # 1
+Id: 5
+Timestamp: 1632732383625
+Magic number: 2270549750562939402
+Hash of the previous block:
+00049503b867394e7dbb5dd04bc5d2791d6c57e2a023843afe8beca4a32d3281
+Hash of the block:
+00009f77cb7f6a8499f92d4b76f0943d574efcef581b031d8b301c16bdb0fa2f
+Block was generating for 0 seconds
+N was increased to 5
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.hyperskill.hstest.stage.StageTest.start(StageTest.java:155)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:110)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
+	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:62)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:121)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -78,148 +207,77 @@
 </tr>
 </thead>
 <tr>
-<td class="success">start</td>
-<td class="success">0.556s</td>
-<td class="success">passed</td>
+<td class="failures">start</td>
+<td class="failures">0.427s</td>
+<td class="failures">failed</td>
 </tr>
 </table>
 </div>
-<div id="tab1" class="tab">
+<div id="tab2" class="tab">
 <h2>Standard output</h2>
 <span class="code">
 <pre>?[1;31m
 Start test 1?[0m
-
 Block:
-Created by miner # 3
+Created by miner # 1
 Id: 1
-Timestamp: 1632488905216
-Magic number: 12284643
+Timestamp: 1632732383531
+Magic number: 0
 Hash of the previous block:
 0
 Hash of the block:
-f28ed0ebccb353bd73e8ca7d29d794b1fddaf3f32cf6c6027809c87131375d1d
+3012506c89b87f3ab42e9f8636a93f1bc92a70195d1aa7d193eaa70400847f64
 Block was generating for 0 seconds
 N was increased to 1
-
 
 Block:
 Created by miner # 4
 Id: 2
-Timestamp: 1632488905222
-Magic number: 48891532
+Timestamp: 1632732383578
+Magic number: 0
 Hash of the previous block:
-f28ed0ebccb353bd73e8ca7d29d794b1fddaf3f32cf6c6027809c87131375d1d
+3012506c89b87f3ab42e9f8636a93f1bc92a70195d1aa7d193eaa70400847f64
 Hash of the block:
-06f7af488b77116316ad8871803919c31d4dd99c6ca7e679947d3e4e2cb4f0a5
+043bcb86452860b9be71083f6a10b3e73246e1027ce5bddad12071ccd38838f3
 Block was generating for 0 seconds
 N was increased to 2
-
-
-Block:
-Created by miner # 5
-Id: 3
-Timestamp: 1632488905223
-Magic number: 96749673
-Hash of the previous block:
-06f7af488b77116316ad8871803919c31d4dd99c6ca7e679947d3e4e2cb4f0a5
-Hash of the block:
-0030b8dc7982ab698de7612da3df3cc12d450932fa32fe30b05532db4fd0e6e1
-Block was generating for 0 seconds
-N was increased to 3
-
-
-Block:
-Created by miner # 6
-Id: 4
-Timestamp: 1632488905230
-Magic number: 96334394
-Hash of the previous block:
-0030b8dc7982ab698de7612da3df3cc12d450932fa32fe30b05532db4fd0e6e1
-Hash of the block:
-000e2e99b05f7e02198b9d7050ea0a30388f767f7bcf83cd2492ee99e74fad30
-Block was generating for 0 seconds
-N was increased to 4
-
-
-Block:
-Created by miner # 7
-Id: 5
-Timestamp: 1632488905233
-Magic number: 66479048
-Hash of the previous block:
-000e2e99b05f7e02198b9d7050ea0a30388f767f7bcf83cd2492ee99e74fad30
-Hash of the block:
-00008313795c3f20cab9fb943f71f51cb83fa30b9138c6fd18656192f3640d2f
-Block was generating for 0 seconds
-N was increased to 5
-
-?[1;31m
-Start test 2?[0m
-
-Block:
-Created by miner # 8
-Id: 1
-Timestamp: 1632488905536
-Magic number: 99381498
-Hash of the previous block:
-0
-Hash of the block:
-20ce6b4469630c432c6d3a2cc8be9c91bd493288c4169ec6596884d379d6f9b1
-Block was generating for 0 seconds
-N was increased to 1
-
 
 Block:
 Created by miner # 9
-Id: 2
-Timestamp: 1632488905538
-Magic number: 66290922
-Hash of the previous block:
-20ce6b4469630c432c6d3a2cc8be9c91bd493288c4169ec6596884d379d6f9b1
-Hash of the block:
-090660bc101920c123d29351d9455244a2d7fbb3e6273ed910b00a296cdeb97e
-Block was generating for 0 seconds
-N was increased to 2
-
-
-Block:
-Created by miner # 0
 Id: 3
-Timestamp: 1632488905538
-Magic number: 25096494
+Timestamp: 1632732383578
+Magic number: 1471371673623145330
 Hash of the previous block:
-090660bc101920c123d29351d9455244a2d7fbb3e6273ed910b00a296cdeb97e
+043bcb86452860b9be71083f6a10b3e73246e1027ce5bddad12071ccd38838f3
 Hash of the block:
-00e31924e79ff86f196fc138e861210cf8c7c827f741d7b4f636245ea33e2df7
+00ece143d015b808b9e8f33823c4c0e65d70d2427c4014ca591f26a9ea4182ec
 Block was generating for 0 seconds
 N was increased to 3
 
-
 Block:
-Created by miner # 1
+Created by miner # 5
 Id: 4
-Timestamp: 1632488905541
-Magic number: 90426703
+Timestamp: 1632732383578
+Magic number: 9183207472447760578
 Hash of the previous block:
-00e31924e79ff86f196fc138e861210cf8c7c827f741d7b4f636245ea33e2df7
+00ece143d015b808b9e8f33823c4c0e65d70d2427c4014ca591f26a9ea4182ec
 Hash of the block:
-000406a55f47c44a20dbfe6446ad5b846fab8f172598293cfdc1f73b2cadbf05
+00049503b867394e7dbb5dd04bc5d2791d6c57e2a023843afe8beca4a32d3281
 Block was generating for 0 seconds
 N was increased to 4
 
-
 Block:
-Created by miner # 2
+Created by miner # 1
 Id: 5
-Timestamp: 1632488905551
-Magic number: 3772535
+Timestamp: 1632732383625
+Magic number: 2270549750562939402
 Hash of the previous block:
-000406a55f47c44a20dbfe6446ad5b846fab8f172598293cfdc1f73b2cadbf05
+00049503b867394e7dbb5dd04bc5d2791d6c57e2a023843afe8beca4a32d3281
 Hash of the block:
-000085b53ae916bbb990b09ea9655ff4910ffb0cfa68747fab79500a21433bba
+00009f77cb7f6a8499f92d4b76f0943d574efcef581b031d8b301c16bdb0fa2f
 Block was generating for 0 seconds
 N was increased to 5
+
 
 </pre>
 </span>
@@ -232,7 +290,7 @@ N was increased to 5
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.1.1</a> at 24 сент. 2021 г., 16:08:25</p>
+<a href="http://www.gradle.org">Gradle 7.1.1</a> at 27 сент. 2021 г., 11:46:23</p>
 </div>
 </div>
 </body>

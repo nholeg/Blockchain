@@ -1,35 +1,39 @@
 package blockchain;
 
-
-import java.util.Comparator;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class Main {
-    public static void main(String[] args) {
-        Storage storage = new Storage().initializeStorage();
-        Blockchain blockchain =Blockchain.getInstance();
-        if (!Validator.validateChain(blockchain.chainMap)) {
-            System.out.println("Blockchain content different than expected.");
-        } else {
-            do {
-                for (int i = 0; i < 5; i++) {
-                    String zerosPrefix = "0".repeat(blockchain.getN());
-                    //making workers
-                    Thread worker = new Worker(zerosPrefix, storage.getBlockId());
-                    worker.start();
-                    try {
-                        worker.join();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            } while (blockchain.chainMap.size() % 5 != 0);
+    public static void main(String[] args) throws InterruptedException {
+        int numOfZeros = 0;
 
-            blockchain.chainMap.values().stream()
-                    .sorted(Comparator.comparingInt(Block::getBlockId).reversed())
-                    .limit(5)
-                    .sorted(Comparator.comparingInt(Block::getBlockId))
-                    .forEach(System.out::println);
-            storage.serializeData();
+        ExecutorService executors = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+        BlockValidator validator = new BlockWithProofValidator(numOfZeros);
+        EventManager eventManager = new EventManager(Event.values());
+        BlockChain blockChain = new BlockChain(executors, eventManager, validator);
+        MinerFactory minerFactory = new MinerFactory(new IdGenerator(), blockChain);
+        MinersCentral minersCentral = new MinersCentral(executors);
+
+        List<Miner> miners = getMiners(minerFactory);
+        eventManager.subscribe(minersCentral, Event.values());
+        minersCentral.subscribe(miners.toArray(new Miner[0]));
+
+        minersCentral.startMining();
+        boolean terminated = executors.awaitTermination(10, TimeUnit.SECONDS);
+        if (terminated) {
+            System.out.println(blockChain);
         }
+    }
+
+    public static List<Miner> getMiners(MinerFactory minerFactory) {
+        int minerCount = Runtime.getRuntime().availableProcessors();
+        List<Miner> miners = new ArrayList<>();
+        for (int i = 0; i < minerCount; i++) {
+            miners.add(minerFactory.createMiner());
+        }
+        return miners;
     }
 }

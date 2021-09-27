@@ -1,17 +1,6 @@
 type: edu
 custom_name: stage4
 files:
-- name: src/blockchain/Main.java
-  visible: true
-  text: |
-    package blockchain;
-
-    public class Main {
-        public static void main(String[] args) {
-            System.out.println("Hello World!");
-        }
-    }
-  learner_created: false
 - name: test/BlockchainTest.java
   visible: false
   text: |
@@ -240,6 +229,230 @@ files:
         }
     }
   learner_created: false
+- name: src/blockchain/Main.java
+  visible: true
+  text: |
+    package blockchain;
+
+    public class Main {
+        public static void main(String[] args) {
+            System.out.println("Hello World!");
+        }
+    }
+  learner_created: false
+- name: src/blockchain/BlockWithProofValidator.java
+  visible: true
+  learner_created: true
+- name: src/blockchain/IdGenerator.java
+  visible: true
+  learner_created: true
+- name: src/blockchain/BlockFactory.java
+  visible: true
+  learner_created: true
+- name: src/blockchain/HashGenerator.java
+  visible: true
+  learner_created: true
+- name: src/blockchain/BlockValidator.java
+  visible: true
+  learner_created: true
+- name: src/blockchain/Blockchain.java
+  visible: true
+  text: |
+    package blockchain;
+
+    import java.util.concurrent.ConcurrentHashMap;
+
+    public class Blockchain {
+
+        private static volatile int n = 0;
+
+        protected static ConcurrentHashMap<Integer, Block> chainMap;
+
+        private static Blockchain instance;
+
+        private Blockchain () { }
+
+        public static Blockchain getInstance() {
+            if (instance == null) {
+                instance = new Blockchain();
+            }
+            return instance;
+        }
+
+        protected static synchronized void addBlockToChain(Block block) {
+            chainMap.put(block.getBlockId(), block);
+        }
+
+        public synchronized static int getN() {
+            return n;
+        }
+
+        public static synchronized void incrementN() {
+            n++;
+        }
+        public static synchronized void decrementN() {
+            n--;
+        }
+    }
+  learner_created: true
+- name: src/blockchain/Block.java
+  visible: true
+  text: |-
+    package blockchain;
+
+    import java.io.Serializable;
+    import java.util.Random;
+
+    public class Block implements Serializable {
+        private static final long serialVersionUID = 123456789L;
+        private final int blockId;
+        private final String prevBlockHash;
+        private final long timeStamp;
+        private long magicNumber;
+        private final String blockHash;
+        private long hashingTime;
+        private String miner;
+        private String statementOfN;
+
+        public Block(int blockId, String zerosPrefix, String miner) {
+            this.blockId = blockId;
+            this.timeStamp = System.currentTimeMillis();
+            this.blockHash = generateBlockHash(zerosPrefix);
+            this.prevBlockHash = Blockchain.chainMap.isEmpty() ? "0"
+                    : Blockchain.chainMap.get(getBlockId() - 1).getBlockHash();
+            this.miner = miner;
+        }
+
+        public int getBlockId() {
+            return blockId;
+        }
+
+        public String getBlockHash() {
+            return blockHash;
+        }
+
+        public long getHashingTime() {
+            return hashingTime;
+        }
+
+        public void setStatementOfN(String statementOfN) {
+            this.statementOfN = statementOfN;
+        }
+
+        private String generateBlockHash(String zerosPrefix) {
+            String blockHash;
+            long start = System.currentTimeMillis();
+            do {
+                magicNumber = new Random().nextInt(100_000_000);
+                blockHash = Hashing.applySHA256(String.valueOf(blockId + timeStamp + magicNumber));
+            } while (!blockHash.startsWith(zerosPrefix));
+            long end = System.currentTimeMillis();
+            hashingTime = ((end - start) / 1000) % 60;
+            return blockHash;
+        }
+
+        @Override
+        public String toString() {
+            return "\nBlock:\n" +
+                    "Created by miner # " + miner + "\n" +
+                    "Id: " + blockId + "\n" +
+                    "Timestamp: " + timeStamp + "\n" +
+                    "Magic number: " + magicNumber + "\n" +
+                    "Hash of the previous block:\n" + prevBlockHash + "\n" +
+                    "Hash of the block:\n" + blockHash + "\n" +
+                    "Block was generating for " + hashingTime + " seconds" + "\n" +
+                    statementOfN + "\n";
+        }
+    }
+  learner_created: true
+- name: src/blockchain/Miner.java
+  visible: true
+  learner_created: true
+- name: src/blockchain/MinerFactory.java
+  visible: true
+  learner_created: true
+- name: src/blockchain/EventManager.java
+  visible: true
+  learner_created: true
+- name: src/blockchain/Event.java
+  visible: true
+  learner_created: true
+- name: src/blockchain/EventListener.java
+  visible: true
+  learner_created: true
+- name: src/blockchain/MinersCentral.java
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/50/stages/274/implement#comment
-status: Unchecked
+status: Failed
+feedback:
+  message: |-
+    Wrong answer in test #1
+
+    Every block should contain at least 12 lines of data
+
+    Please find below the output of your program during this failed test.
+
+    ---
+
+    Block:
+    Created by miner # 1
+    Id: 1
+    Timestamp: 1632732383531
+    Magic number: 0
+    Hash of the previous block:
+    0
+    Hash of the block:
+    3012506c89b87f3ab42e9f8636a93f1bc92a70195d1aa7d193eaa70400847f64
+    Block was generating for 0 seconds
+    N was increased to 1
+
+    Block:
+    Created by miner # 4
+    Id: 2
+    Timestamp: 1632732383578
+    Magic number: 0
+    Hash of the previous block:
+    3012506c89b87f3ab42e9f8636a93f1bc92a70195d1aa7d193eaa70400847f64
+    Hash of the block:
+    043bcb86452860b9be71083f6a10b3e73246e1027ce5bddad12071ccd38838f3
+    Block was generating for 0 seconds
+    N was increased to 2
+
+    Block:
+    Created by miner # 9
+    Id: 3
+    Timestamp: 1632732383578
+    Magic number: 1471371673623145330
+    Hash of the previous block:
+    043bcb86452860b9be71083f6a10b3e73246e1027ce5bddad12071ccd38838f3
+    Hash of the block:
+    00ece143d015b808b9e8f33823c4c0e65d70d2427c4014ca591f26a9ea4182ec
+    Block was generating for 0 seconds
+    N was increased to 3
+
+    Block:
+    Created by miner # 5
+    Id: 4
+    Timestamp: 1632732383578
+    Magic number: 9183207472447760578
+    Hash of the previous block:
+    00ece143d015b808b9e8f33823c4c0e65d70d2427c4014ca591f26a9ea4182ec
+    Hash of the block:
+    00049503b867394e7dbb5dd04bc5d2791d6c57e2a023843afe8beca4a32d3281
+    Block was generating for 0 seconds
+    N was increased to 4
+
+    Block:
+    Created by miner # 1
+    Id: 5
+    Timestamp: 1632732383625
+    Magic number: 2270549750562939402
+    Hash of the previous block:
+    00049503b867394e7dbb5dd04bc5d2791d6c57e2a023843afe8beca4a32d3281
+    Hash of the block:
+    00009f77cb7f6a8499f92d4b76f0943d574efcef581b031d8b301c16bdb0fa2f
+    Block was generating for 0 seconds
+    N was increased to 5
+  time: Mon, 27 Sep 2021 08:46:24 UTC
 record: -1
