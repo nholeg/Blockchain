@@ -1,105 +1,62 @@
 package blockchain;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.Random;
 
-public class Block {
-    public static final int FIRST_ID = 1;
-
-    private final int id;
-    private final long createdAt;
-    private int minerId;
+public class Block implements Serializable {
+    private static final long serialVersionUID = 3L;
+    private final long id;
+    private final long timestamp;
+    private final String hashPrevBlock;
     private String hash;
-    private String prevHash;
-    private long magicNumber;
-    private long provingDuration;
-    private String changeInN;
-    private String message = "";
+    private int magic;
+    private Message[] messages;
 
-    public Block(int id, String prevHash) {
-        this.createdAt = new Date().getTime();
+    public Block(long id, String hashPrevBlock, byte zerosNumber) {
         this.id = id;
-        this.magicNumber = 0;
-        this.setPrevHash(prevHash);
+        this.hashPrevBlock = hashPrevBlock;
+        timestamp = new Date().getTime();
+        String hashWithoutMagic = String.valueOf(id) + (hashPrevBlock == null ? 0 : hashPrevBlock);
+        String zeros = "0".repeat(zerosNumber);
+        Random random = new Random();
+        // Mining process
+        do {
+            magic = random.nextInt();
+            hash = StringUtil.applySha256(hashWithoutMagic + magic);
+        } while (!hash.startsWith(zeros));
     }
 
-    public int getId() {
+    @Override
+    public String toString() {
+        return "Id: " + id + "\n" +
+                "Timestamp: " + timestamp + "\n" +
+                "Magic number: " + magic + "\n" +
+                "Hash of the previous block:\n" +
+                (hashPrevBlock == null ? 0 : hashPrevBlock) + "\n" +
+                "Hash of the block:\n" +
+                hash;
+    }
+
+    // getters
+    public long getId() {
         return id;
     }
 
-    public String getMessage() {
-        if (message.length() == 0) {
-            message = "no messages";
-        }
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-        MessageGenerator.deleteMessagesFromTheQueue();
-    }
-
-    public long getCreatedAt() {
-        return createdAt;
+    public String getHashPrevBlock() {
+        return hashPrevBlock;
     }
 
     public String getHash() {
         return hash;
     }
 
-    public String getPrevHash() {
-        return prevHash;
+    public Message[] getMessages() {
+        return messages;
     }
 
-    public void setPrevHash(String prevHash) {
-        this.prevHash = id == FIRST_ID ? "0" : prevHash;
-    }
-
-    public boolean isFirstBlock() {
-        return this.id == FIRST_ID;
-    }
-
-    public void setHash(String hash) {
-        this.hash = hash;
-    }
-
-    public long getMagicNumber() {
-        return magicNumber;
-    }
-
-    public void setMagicNumber(long magicNumber) {
-        this.magicNumber = magicNumber;
-    }
-
-    public long getMinerId() {
-        return minerId;
-    }
-
-    public void setMinerId(int minerId) {
-        this.minerId = minerId;
-    }
-
-    public void setProvingDuration(long provingDuration) {
-        this.provingDuration = provingDuration;
-    }
-
-    public long getProvingDuration() {
-        return this.provingDuration;
-    }
-
-    public long getProvingDurationInSeconds() {
-        return this.provingDuration / 1_000_000_000;
-    }
-
-    public String getChangeInN() {
-        return changeInN;
-    }
-
-    public void setChangeInN(String changeInN) {
-        this.changeInN = changeInN;
-    }
-
-    @Override
-    public String toString() {
-        return this.id + this.createdAt + this.prevHash + this.magicNumber;
+    // setters
+    public void setMessages(Message[] messages) {
+        this.messages = messages;
     }
 }
