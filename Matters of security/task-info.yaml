@@ -240,6 +240,9 @@ files:
         }
     }
   learner_created: false
+- name: blockchain.data
+  visible: true
+  learner_created: true
 - name: src/blockchain/StringUtil.java
   visible: true
   learner_created: true
@@ -249,36 +252,15 @@ files:
 - name: src/blockchain/Miner.java
   visible: true
   learner_created: true
-- name: src/blockchain/Person.java
-  visible: true
-  learner_created: true
 - name: src/blockchain/Block.java
   visible: true
   learner_created: true
-- name: src/blockchain/Message.java
-  visible: true
-  learner_created: true
-- name: src/blockchain/Cryptography.java
-  visible: true
-  learner_created: true
-- name: src/blockchain/GenerateKeys.java
-  visible: true
-  learner_created: true
-- name: src/blockchain/PathsConstants.java
-  visible: true
-  learner_created: true
-- name: src/blockchain/SerializationUtils.java
-  visible: true
-  learner_created: true
-- name: blockchain.data
+- name: src/blockchain/CryptoSecurity.java
   visible: true
   learner_created: true
 feedback_link: https://hyperskill.org/projects/50/stages/275/implement#comment
-status: Failed
+status: Solved
 feedback:
-  message: "Wrong answer in test #1\n\nYou should output 5 blocks, found 0\n\nPlease\
-    \ find below the output of your program during this failed test.\n\n---\n\nstderr:\n\
-    java.lang.InterruptedException: sleep interrupted\n\tat java.base/java.lang.Thread.sleep(Native\
-    \ Method)\n\tat blockchai"
-  time: Mon, 27 Sep 2021 11:48:30 UTC
-record: -1
+  message: Congratulations!
+  time: Mon, 27 Sep 2021 12:06:17 UTC
+record: 6

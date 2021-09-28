@@ -1,17 +1,6 @@
 type: edu
 custom_name: stage6
 files:
-- name: src/blockchain/Main.java
-  visible: true
-  text: |
-    package blockchain;
-
-    public class Main {
-        public static void main(String[] args) {
-            System.out.println("Hello World!");
-        }
-    }
-  learner_created: false
 - name: test/BlockchainTest.java
   visible: false
   text: |
@@ -245,6 +234,37 @@ files:
         }
     }
   learner_created: false
+- name: src/blockchain/Main.java
+  visible: true
+  learner_created: true
+- name: src/blockchain/Miner.java
+  visible: true
+  learner_created: true
+- name: src/blockchain/StringUtil.java
+  visible: true
+  learner_created: true
+- name: src/blockchain/Block.java
+  visible: true
+  learner_created: true
+- name: src/blockchain/Transaction.java
+  visible: true
+  learner_created: true
+- name: blockchain.data
+  visible: true
+  learner_created: true
+- name: src/blockchain/BlockChain.java
+  visible: true
+  learner_created: true
+- name: src/blockchain/MessageGenerator.java
+  visible: true
+  learner_created: true
+- name: src/blockchain/BlockMessages.java
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/50/stages/276/implement#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Well done! You've finished the project. Select a new project on <a href="https://hyperskill.org/projects">JetBrains
+    Academy</a> to continue learning.
+  time: Tue, 28 Sep 2021 07:56:46 UTC
 record: -1

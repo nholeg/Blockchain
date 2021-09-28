@@ -29,7 +29,7 @@
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">1</div>
+<div class="counter">0</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">10.145s</div>
+<div class="counter">0.806s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox failures" id="successRate">
-<div class="percent">0%</div>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,90 +61,13 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Failed tests</a>
+<a href="#tab0">Tests</a>
 </li>
 <li>
-<a href="#tab1">Tests</a>
-</li>
-<li>
-<a href="#tab2">Standard output</a>
-</li>
-<li>
-<a href="#tab3">Standard error</a>
+<a href="#tab1">Standard output</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
-<h2>Failed tests</h2>
-<div class="test">
-<a name="start"></a>
-<h3 class="failures">start</h3>
-<span class="code">
-<pre>java.lang.AssertionError: Wrong answer in test #1
-
-You should output 5 blocks, found 0
-
-Please find below the output of your program during this failed test.
-
----
-
-stderr:
-java.lang.InterruptedException: sleep interrupted
-	at java.base/java.lang.Thread.sleep(Native Method)
-	at blockchai
-	at org.junit.Assert.fail(Assert.java:88)
-	at org.hyperskill.hstest.stage.StageTest.start(StageTest.java:155)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:110)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
-	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:62)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
-	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:121)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
-	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
-	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-</pre>
-</span>
-</div>
-</div>
-<div id="tab1" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -155,32 +78,709 @@ java.lang.InterruptedException: sleep interrupted
 </tr>
 </thead>
 <tr>
-<td class="failures">start</td>
-<td class="failures">10.145s</td>
-<td class="failures">failed</td>
+<td class="success">start</td>
+<td class="success">0.806s</td>
+<td class="success">passed</td>
 </tr>
 </table>
 </div>
-<div id="tab2" class="tab">
+<div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
 <pre>?[1;31m
 Start test 1?[0m
-</pre>
-</span>
-</div>
-<div id="tab3" class="tab">
-<h2>Standard error</h2>
-<span class="code">
-<pre>java.lang.InterruptedException: sleep interrupted
-	at java.base/java.lang.Thread.sleep(Native Method)
-	at blockchain.Person.sleep(Person.java:30)
-	at blockchain.Main.lambda$main$1(Main.java:54)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
+Block:
+Created by miner # 28
+miner # 28 gets 100 VC
+Id: 1
+Timestamp: 1632815805484
+Magic number: -1418015738
+Hash of the previous block:
+0
+Hash of the block:
+2fea4af4f271ba317b9cc763c430b3b74ce6eb7232dbbe8a4134e91263eefcee
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 20
+miner # 20 gets 100 VC
+Id: 2
+Timestamp: 1632815805547
+Magic number: -372464607
+Hash of the previous block:
+2fea4af4f271ba317b9cc763c430b3b74ce6eb7232dbbe8a4134e91263eefcee
+Hash of the block:
+97334aed75cf3a97a6bb6f328681d41a8acf93647ccc42dc38d0ad5c20e58c3a
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 29
+miner # 29 gets 100 VC
+Id: 3
+Timestamp: 1632815805547
+Magic number: -917160581
+Hash of the previous block:
+97334aed75cf3a97a6bb6f328681d41a8acf93647ccc42dc38d0ad5c20e58c3a
+Hash of the block:
+b6f99c989927f2292985efd4e971bbb6e20bfd5c00d13559ef50af56ccef6897
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 29
+miner # 29 gets 100 VC
+Id: 4
+Timestamp: 1632815805547
+Magic number: -1543616169
+Hash of the previous block:
+b6f99c989927f2292985efd4e971bbb6e20bfd5c00d13559ef50af56ccef6897
+Hash of the block:
+31e1c9368d2329adbc4e11af76158bd5290f420a236afd8b953aa87cde5e71ac
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 27
+miner # 27 gets 100 VC
+Id: 5
+Timestamp: 1632815805547
+Magic number: 994009155
+Hash of the previous block:
+31e1c9368d2329adbc4e11af76158bd5290f420a236afd8b953aa87cde5e71ac
+Hash of the block:
+7735c46fab08a6dfcd862caeb5ed33da47d7bd12a43ad7fcce5ef789dcd9c7dc
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 21
+miner # 21 gets 100 VC
+Id: 6
+Timestamp: 1632815805547
+Magic number: -1460736584
+Hash of the previous block:
+7735c46fab08a6dfcd862caeb5ed33da47d7bd12a43ad7fcce5ef789dcd9c7dc
+Hash of the block:
+cc4e3eaafa60f922ab8eab47c5ad1e537d238b235fde612c9a4fad74b5d3d3ae
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 31
+miner # 31 gets 100 VC
+Id: 7
+Timestamp: 1632815805547
+Magic number: 1322027168
+Hash of the previous block:
+cc4e3eaafa60f922ab8eab47c5ad1e537d238b235fde612c9a4fad74b5d3d3ae
+Hash of the block:
+11cb33be420bbd3d967518156c88fd25513dca9b13947453bdaabe50be41113e
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 30
+miner # 30 gets 100 VC
+Id: 8
+Timestamp: 1632815805547
+Magic number: 213352473
+Hash of the previous block:
+11cb33be420bbd3d967518156c88fd25513dca9b13947453bdaabe50be41113e
+Hash of the block:
+ccdf7169fd5091e556cdf183e3e11686715bf3c254b4e2700d2feb8086394dc6
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 20
+miner # 20 gets 100 VC
+Id: 9
+Timestamp: 1632815805547
+Magic number: -1988450863
+Hash of the previous block:
+ccdf7169fd5091e556cdf183e3e11686715bf3c254b4e2700d2feb8086394dc6
+Hash of the block:
+2ec818cae6774e494a8f64ce47eeafd4ec8160c025a90ee1d55431f08784d70d
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 26
+miner # 26 gets 100 VC
+Id: 10
+Timestamp: 1632815805547
+Magic number: -246489371
+Hash of the previous block:
+2ec818cae6774e494a8f64ce47eeafd4ec8160c025a90ee1d55431f08784d70d
+Hash of the block:
+b4399072bdd2dfda8a62c7e77f5f9d5b0e090d9662fcecf35aa39ec6ce35836e
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 28
+miner # 28 gets 100 VC
+Id: 11
+Timestamp: 1632815805547
+Magic number: -1609428366
+Hash of the previous block:
+b4399072bdd2dfda8a62c7e77f5f9d5b0e090d9662fcecf35aa39ec6ce35836e
+Hash of the block:
+1ee7dee738b063f70b17cac8ffdb2f0a2b4ad68fa0d994573ca1533520e18af6
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 24
+miner # 24 gets 100 VC
+Id: 12
+Timestamp: 1632815805562
+Magic number: -52228730
+Hash of the previous block:
+1ee7dee738b063f70b17cac8ffdb2f0a2b4ad68fa0d994573ca1533520e18af6
+Hash of the block:
+bf5efef3e73d8b3524ef402fee3ebeac35476b85bc871ad770b1edf13e5bfcff
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 25
+miner # 25 gets 100 VC
+Id: 13
+Timestamp: 1632815805562
+Magic number: -1193206972
+Hash of the previous block:
+bf5efef3e73d8b3524ef402fee3ebeac35476b85bc871ad770b1edf13e5bfcff
+Hash of the block:
+b01be8ff049dd49f05c917e978b9c6bd6b0925a6c38e52c470168069ab6fd4e7
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 22
+miner # 22 gets 100 VC
+Id: 14
+Timestamp: 1632815805562
+Magic number: 886664135
+Hash of the previous block:
+b01be8ff049dd49f05c917e978b9c6bd6b0925a6c38e52c470168069ab6fd4e7
+Hash of the block:
+9cc72f3256c3579c29d98710f89cc7d6003217fccdf6531871d2563075c8264f
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 23
+miner # 23 gets 100 VC
+Id: 15
+Timestamp: 1632815805562
+Magic number: 1971860748
+Hash of the previous block:
+9cc72f3256c3579c29d98710f89cc7d6003217fccdf6531871d2563075c8264f
+Hash of the block:
+994e99ed1db9d4a069a56b04266f11d5dbb8dd89c379568ba304ccc75ebaceae
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+?[1;31m
+Start test 2?[0m
+Block:
+Created by miner # 28
+miner # 28 gets 100 VC
+
+Id: 1
+Timestamp: 1632815805484
+Magic number: null
+Hash of the previous block:
+0
+Hash of the block:
+2fea4af4f271ba317b9cc763c430b3b74ce6eb7232dbbe8a4134e91263eefcee
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 20
+miner # 20 gets 100 VC
+
+Id: 2
+Timestamp: 1632815805547
+Magic number: null
+Hash of the previous block:
+2fea4af4f271ba317b9cc763c430b3b74ce6eb7232dbbe8a4134e91263eefcee
+Hash of the block:
+97334aed75cf3a97a6bb6f328681d41a8acf93647ccc42dc38d0ad5c20e58c3a
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 29
+miner # 29 gets 100 VC
+
+Id: 3
+Timestamp: 1632815805547
+Magic number: null
+Hash of the previous block:
+97334aed75cf3a97a6bb6f328681d41a8acf93647ccc42dc38d0ad5c20e58c3a
+Hash of the block:
+b6f99c989927f2292985efd4e971bbb6e20bfd5c00d13559ef50af56ccef6897
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 29
+miner # 29 gets 100 VC
+
+Id: 4
+Timestamp: 1632815805547
+Magic number: null
+Hash of the previous block:
+b6f99c989927f2292985efd4e971bbb6e20bfd5c00d13559ef50af56ccef6897
+Hash of the block:
+31e1c9368d2329adbc4e11af76158bd5290f420a236afd8b953aa87cde5e71ac
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 27
+miner # 27 gets 100 VC
+
+Id: 5
+Timestamp: 1632815805547
+Magic number: null
+Hash of the previous block:
+31e1c9368d2329adbc4e11af76158bd5290f420a236afd8b953aa87cde5e71ac
+Hash of the block:
+7735c46fab08a6dfcd862caeb5ed33da47d7bd12a43ad7fcce5ef789dcd9c7dc
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 21
+miner # 21 gets 100 VC
+
+Id: 6
+Timestamp: 1632815805547
+Magic number: null
+Hash of the previous block:
+7735c46fab08a6dfcd862caeb5ed33da47d7bd12a43ad7fcce5ef789dcd9c7dc
+Hash of the block:
+cc4e3eaafa60f922ab8eab47c5ad1e537d238b235fde612c9a4fad74b5d3d3ae
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 31
+miner # 31 gets 100 VC
+
+Id: 7
+Timestamp: 1632815805547
+Magic number: null
+Hash of the previous block:
+cc4e3eaafa60f922ab8eab47c5ad1e537d238b235fde612c9a4fad74b5d3d3ae
+Hash of the block:
+11cb33be420bbd3d967518156c88fd25513dca9b13947453bdaabe50be41113e
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 30
+miner # 30 gets 100 VC
+
+Id: 8
+Timestamp: 1632815805547
+Magic number: null
+Hash of the previous block:
+11cb33be420bbd3d967518156c88fd25513dca9b13947453bdaabe50be41113e
+Hash of the block:
+ccdf7169fd5091e556cdf183e3e11686715bf3c254b4e2700d2feb8086394dc6
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 20
+miner # 20 gets 100 VC
+
+Id: 9
+Timestamp: 1632815805547
+Magic number: null
+Hash of the previous block:
+ccdf7169fd5091e556cdf183e3e11686715bf3c254b4e2700d2feb8086394dc6
+Hash of the block:
+2ec818cae6774e494a8f64ce47eeafd4ec8160c025a90ee1d55431f08784d70d
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 26
+miner # 26 gets 100 VC
+
+Id: 10
+Timestamp: 1632815805547
+Magic number: null
+Hash of the previous block:
+2ec818cae6774e494a8f64ce47eeafd4ec8160c025a90ee1d55431f08784d70d
+Hash of the block:
+b4399072bdd2dfda8a62c7e77f5f9d5b0e090d9662fcecf35aa39ec6ce35836e
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 28
+miner # 28 gets 100 VC
+
+Id: 11
+Timestamp: 1632815805547
+Magic number: null
+Hash of the previous block:
+b4399072bdd2dfda8a62c7e77f5f9d5b0e090d9662fcecf35aa39ec6ce35836e
+Hash of the block:
+1ee7dee738b063f70b17cac8ffdb2f0a2b4ad68fa0d994573ca1533520e18af6
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 24
+miner # 24 gets 100 VC
+
+Id: 12
+Timestamp: 1632815805562
+Magic number: null
+Hash of the previous block:
+1ee7dee738b063f70b17cac8ffdb2f0a2b4ad68fa0d994573ca1533520e18af6
+Hash of the block:
+bf5efef3e73d8b3524ef402fee3ebeac35476b85bc871ad770b1edf13e5bfcff
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 25
+miner # 25 gets 100 VC
+
+Id: 13
+Timestamp: 1632815805562
+Magic number: null
+Hash of the previous block:
+bf5efef3e73d8b3524ef402fee3ebeac35476b85bc871ad770b1edf13e5bfcff
+Hash of the block:
+b01be8ff049dd49f05c917e978b9c6bd6b0925a6c38e52c470168069ab6fd4e7
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 22
+miner # 22 gets 100 VC
+
+Id: 14
+Timestamp: 1632815805562
+Magic number: null
+Hash of the previous block:
+b01be8ff049dd49f05c917e978b9c6bd6b0925a6c38e52c470168069ab6fd4e7
+Hash of the block:
+9cc72f3256c3579c29d98710f89cc7d6003217fccdf6531871d2563075c8264f
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 23
+miner # 23 gets 100 VC
+
+Id: 15
+Timestamp: 1632815805562
+Magic number: null
+Hash of the previous block:
+9cc72f3256c3579c29d98710f89cc7d6003217fccdf6531871d2563075c8264f
+Hash of the block:
+994e99ed1db9d4a069a56b04266f11d5dbb8dd89c379568ba304ccc75ebaceae
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 40
+miner # 40 gets 100 VC
+Id: 16
+Timestamp: 1632815805844
+Magic number: 220204419
+Hash of the previous block:
+994e99ed1db9d4a069a56b04266f11d5dbb8dd89c379568ba304ccc75ebaceae
+Hash of the block:
+a105efd2b4c6f28f5904347c4c9c5c5e94ab6003916a6ee7804079e329be12a6
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 45
+miner # 45 gets 100 VC
+Id: 17
+Timestamp: 1632815805844
+Magic number: -415860246
+Hash of the previous block:
+a105efd2b4c6f28f5904347c4c9c5c5e94ab6003916a6ee7804079e329be12a6
+Hash of the block:
+005793a06a3d663e067bffb9f637577af7f280dd99fdde8d060c1fddb2f1d8ab
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 35
+miner # 35 gets 100 VC
+Id: 18
+Timestamp: 1632815805844
+Magic number: 178716857
+Hash of the previous block:
+005793a06a3d663e067bffb9f637577af7f280dd99fdde8d060c1fddb2f1d8ab
+Hash of the block:
+3fab84999526851dfc15aa233a129bb4ee2fc473d46164a083c43ae00d67e4c3
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 35
+miner # 35 gets 100 VC
+Id: 19
+Timestamp: 1632815805844
+Magic number: 2048418184
+Hash of the previous block:
+3fab84999526851dfc15aa233a129bb4ee2fc473d46164a083c43ae00d67e4c3
+Hash of the block:
+f884c876bf44eea83e54d8ab8da4772afd066ce79b64bf4fb75a0f0419ff3413
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 41
+miner # 41 gets 100 VC
+Id: 20
+Timestamp: 1632815805844
+Magic number: 1111179563
+Hash of the previous block:
+f884c876bf44eea83e54d8ab8da4772afd066ce79b64bf4fb75a0f0419ff3413
+Hash of the block:
+0694c23fc70e8b1e7d5dc49dbc524bc6da6ebcf04b47e4fa228911079b4f674b
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 43
+miner # 43 gets 100 VC
+Id: 21
+Timestamp: 1632815805844
+Magic number: 859749964
+Hash of the previous block:
+0694c23fc70e8b1e7d5dc49dbc524bc6da6ebcf04b47e4fa228911079b4f674b
+Hash of the block:
+f2972c47560b8254e8e634f8ccf191f1c0bc939a1ef3d836a58095901b6caba5
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 46
+miner # 46 gets 100 VC
+Id: 22
+Timestamp: 1632815805844
+Magic number: -1927753732
+Hash of the previous block:
+f2972c47560b8254e8e634f8ccf191f1c0bc939a1ef3d836a58095901b6caba5
+Hash of the block:
+468bdb6c540b1be03916096f5fbf6422953d4045e70190d7af1d36219971b316
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 40
+miner # 40 gets 100 VC
+Id: 23
+Timestamp: 1632815805844
+Magic number: 298747772
+Hash of the previous block:
+468bdb6c540b1be03916096f5fbf6422953d4045e70190d7af1d36219971b316
+Hash of the block:
+6a46c9358a3f69d9d01dd957435b06dd38f651718055f297f3a97767da22437c
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 45
+miner # 45 gets 100 VC
+Id: 24
+Timestamp: 1632815805844
+Magic number: 1423293418
+Hash of the previous block:
+6a46c9358a3f69d9d01dd957435b06dd38f651718055f297f3a97767da22437c
+Hash of the block:
+e9d7f2326f3b95010eeddaae42d248eef897059b9ab9c302762fc507e8a902f9
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 37
+miner # 37 gets 100 VC
+Id: 25
+Timestamp: 1632815805844
+Magic number: -1049659472
+Hash of the previous block:
+e9d7f2326f3b95010eeddaae42d248eef897059b9ab9c302762fc507e8a902f9
+Hash of the block:
+cb99eb11b2e0b14b7f57275b644293e50af7da899e236026c05c8f0b9d2562da
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 42
+miner # 42 gets 100 VC
+Id: 26
+Timestamp: 1632815805844
+Magic number: 878214744
+Hash of the previous block:
+cb99eb11b2e0b14b7f57275b644293e50af7da899e236026c05c8f0b9d2562da
+Hash of the block:
+49a8f878f853d15e0b95ebf76d0adf0b0f60d441e276bf42abf6ad39647f2af9
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 39
+miner # 39 gets 100 VC
+Id: 27
+Timestamp: 1632815805844
+Magic number: 1212930033
+Hash of the previous block:
+49a8f878f853d15e0b95ebf76d0adf0b0f60d441e276bf42abf6ad39647f2af9
+Hash of the block:
+0a5faf6da0f922b84d7dc12d5c77a161fd7230aaa03f3d249d941dc7da5a316e
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 38
+miner # 38 gets 100 VC
+Id: 28
+Timestamp: 1632815805844
+Magic number: -1145375170
+Hash of the previous block:
+0a5faf6da0f922b84d7dc12d5c77a161fd7230aaa03f3d249d941dc7da5a316e
+Hash of the block:
+9f9010ec156f68c458c172931b8915bce0781df89c35fde0e632f42cf47b9a85
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 36
+miner # 36 gets 100 VC
+Id: 29
+Timestamp: 1632815805844
+Magic number: 1740787506
+Hash of the previous block:
+9f9010ec156f68c458c172931b8915bce0781df89c35fde0e632f42cf47b9a85
+Hash of the block:
+8425103848b00360a2868c8f1ecf3b92c9d79b99e2e41bec2d4ca03b1b392d84
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
+Block:
+Created by miner # 44
+miner # 44 gets 100 VC
+Id: 30
+Timestamp: 1632815805844
+Magic number: 1653936120
+Hash of the previous block:
+8425103848b00360a2868c8f1ecf3b92c9d79b99e2e41bec2d4ca03b1b392d84
+Hash of the block:
+1523470f48b3a51f2f75e55450164abb6e5aae110735aafa4d6af9ec67a8793a
+Block data:
+No transactions
+Block was generating for 0 seconds
+N stays the same
+
 </pre>
 </span>
 </div>
@@ -192,7 +792,7 @@ Start test 1?[0m
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.1.1</a> at 27 сент. 2021 г., 14:48:30</p>
+<a href="http://www.gradle.org">Gradle 7.1.1</a> at 28 сент. 2021 г., 10:56:46</p>
 </div>
 </div>
 </body>
